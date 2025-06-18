@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Reetu Didi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to right, #1f0036, #3b0060);
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      color: #ffccff;
+      text-shadow: 0 0 10px #e75480;
+      animation: fadeInDown 1s ease forwards;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .message-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 25px;
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      max-width: 650px;
+      width: 100%;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .message-box p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #f7e1ff;
+    }
+
+    .signature, .countdown {
+      margin-top: 18px;
+      font-weight: 400;
+      color: #ffe5f9;
+      text-shadow: 0 0 3px #fba0ff;
+    }
+
+    .music-button, .more-button {
+      margin-top: 30px;
+      background: linear-gradient(135deg, #f06, #d94eff);
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      font-size: 15px;
+      border-radius: 40px;
+      box-shadow: 0 0 12px #ff4da6;
+      cursor: pointer;
+      transition: transform 0.3s;
+      animation: popIn 1.5s ease;
+    }
+
+    .music-button:hover, .more-button:hover {
+      transform: scale(1.07);
+      background: linear-gradient(135deg, #ff4da6, #ff85d8);
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 30px;
+      animation: fadeInUp 2s ease;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.7); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Happy Birthday meri pyari Didi g 💕</h1>
+
+  <div class="message-box">
+    <p>
+      Aaj 21 June h ye apka hi din h me chahta hu ki apki life bhut sari khushiyon se bhar jae.<br><br>
+      Meri kismat hamesha kharab rehti h lekin usne mujhe appse milwaya.<br>
+      Anjan bn ke mile the or ajj app mere khass ho chuke ho.<br><br>
+      Na jane mene or apne ab tk kitni bate share ki or aage bhi ni janta ki kb tak ye bate or chelgi.<br>
+      Meri kismat me mene har favourite ya khass chij hamesha khoii hai. Mujhse nhi sha jata yarr.<br><br>
+      Ab app hi meri khass ho or ab me apko nhi khona chahta.<br>
+      Ek question h apke liye — kya app mere sath hamesha rahoge?<br><br>
+      Mere liye app bhuutttttttt hi jyada important ho.<br>
+      Apko phoolon 🌼 se bhut ache lgte hai lekin apko kon batae ki meri 👀 nazariya se dekho to tum bhi ek phool 🌼 ho<br>
+      jisse me kbhi todna nhi chahunga.<br><br>
+      Bs yarr itne sbd kaffi h 😄 Love you pagli 🤭
+    </p>
+    <div class="signature">Apka प्रिय bandar 🐒<br>(Yateen Don)</div>
+    <div class="countdown" id="cd">Loading countdown...</div>
+  </div>
+
+  <div class="button-container">
+    <button class="music-button" onclick="document.getElementById('bg-music').play()">🎵 Play Song</button>
+    <a href="page3.html"><button class="more-button">✨ Click here to more</button></a>
+  </div>
+
+  <audio id="bg-music" src="https://files.catbox.moe/u84k14.mp3" preload="auto"></audio>
+
+  <script>
+    const cdEl = document.getElementById('cd');
+    function updateCountdown(){
+      const now = new Date();
+      const nextB = new Date(now.getFullYear(), 5, 21, 0, 0, 0);
+      if(now > nextB) nextB.setFullYear(nextB.getFullYear() + 1);
+      const d = nextB - now;
+      const days = Math.floor(d / 864e5);
+      const hrs = Math.floor(d % 864e5 / 36e5);
+      const mins = Math.floor(d % 36e5 / 6e4);
+      const secs = Math.floor(d % 6e4 / 1000);
+      cdEl.textContent = `🎂 In ${days}d ${hrs}h ${mins}m ${secs}s until your special day!`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
